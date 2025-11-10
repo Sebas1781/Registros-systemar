@@ -40,6 +40,9 @@ class RegistrationController extends Controller
             $validated['fotografia'] = $request->file('fotografia')->store('fotografias', 'public');
         }
 
+        // Agregar el ID del usuario autenticado
+        $validated['user_id'] = auth()->id();
+
         Registration::create($validated);
 
         return redirect()->route('registration.form')

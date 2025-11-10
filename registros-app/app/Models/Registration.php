@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Registration extends Model
 {
     protected $fillable = [
+        'user_id',
         'nombre',
         'apellido_paterno',
         'apellido_materno',
@@ -26,4 +27,12 @@ class Registration extends Model
         'por_que_propone',
         'corriente_politica',
     ];
+
+    /**
+     * Relación con el usuario que creó el registro
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

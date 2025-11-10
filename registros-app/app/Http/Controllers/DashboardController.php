@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $registrations = Registration::latest()->paginate(10);
+        $registrations = Registration::with('user')->latest()->paginate(10);
 
         return view('dashboard.index', compact('registrations'));
     }

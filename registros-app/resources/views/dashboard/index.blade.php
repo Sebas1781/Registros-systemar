@@ -42,8 +42,13 @@
                                                 <p class="text-sm text-gray-600 mt-1">CURP: {{ $registration->curp }}</p>
                                             </div>
                                         </div>
-                                        <div class="flex gap-2">
+                                        <div class="flex flex-col items-end gap-1">
                                             <span class="text-xs text-gray-500">ID: {{ $registration->id }}</span>
+                                            @if($registration->user)
+                                                <span class="text-xs text-gray-500">
+                                                    Registrado por: {{ $registration->user->name }} {{ $registration->user->apellido_paterno }}
+                                                </span>
+                                            @endif
                                             <form action="{{ route('dashboard.destroy', $registration->id) }}" method="POST" class="inline" onsubmit="return confirm('¿Estás seguro de eliminar este registro?')">
                                                 @csrf
                                                 @method('DELETE')

@@ -1,9 +1,12 @@
-@extends('layouts.app-public')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Formulario de Registro') }}
+        </h2>
+    </x-slot>
 
-@section('title', 'Formulario de Registro')
-
-@section('content')
-<div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
         <div class="bg-white shadow-xl rounded-lg p-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-2 text-center">
@@ -390,5 +393,6 @@
         toggleDetalleExperiencia();
     });
 </script>
-
-@endsection
+    </div>
+</div>
+</x-app-layout>
