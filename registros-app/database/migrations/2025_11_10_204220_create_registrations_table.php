@@ -13,10 +13,30 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
+            // Datos personales
             $table->string('nombre');
-            $table->string('email');
-            $table->string('telefono')->nullable();
-            $table->text('mensaje')->nullable();
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
+            $table->string('fotografia')->nullable();
+            $table->string('curp');
+            
+            // Dirección
+            $table->string('calle');
+            $table->string('manzana')->nullable();
+            $table->string('lote')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('codigo_postal');
+            $table->string('municipio');
+            
+            // Datos electorales y profesionales
+            $table->string('seccion_electoral');
+            $table->string('ocupacion_actual');
+            $table->enum('experiencia', ['Si', 'No']);
+            $table->text('detalle_experiencia')->nullable();
+            $table->text('secciones_desarrollarse');
+            $table->text('por_que_propone');
+            $table->text('corriente_politica');
+            
             $table->timestamps();
         });
     }

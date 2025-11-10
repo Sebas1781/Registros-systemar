@@ -13,11 +13,11 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="{{ route('registration.form') }}" class="text-xl font-bold text-gray-800">
-                        Sistema de Registros
+                        Registros
                     </a>
                 </div>
                 <div class="flex items-center">
-                    <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-200">
+                    <a href="{{ route('login') }}" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg transition duration-200 shadow-sm">
                         Iniciar Sesión
                     </a>
                 </div>

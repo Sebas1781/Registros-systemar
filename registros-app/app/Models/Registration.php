@@ -8,8 +8,22 @@ class Registration extends Model
 {
     protected $fillable = [
         'nombre',
-        'email',
-        'telefono',
-        'mensaje',
+        'apellido_paterno',
+        'apellido_materno',
+        'fotografia',
+        'curp',
+        'calle',
+        'manzana',
+        'lote',
+        'numero',
+        'codigo_postal',
+        'municipio',
+        'seccion_electoral',
+        'ocupacion_actual',
+        'experiencia',
+        'detalle_experiencia',
+        'secciones_desarrollarse',
+        'por_que_propone',
+        'corriente_politica',
     ];
 }
