@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('apellido_materno');
             $table->string('fotografia')->nullable();
             $table->string('curp');
-            
+
             // Dirección
             $table->string('calle');
             $table->string('manzana')->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('numero')->nullable();
             $table->string('codigo_postal');
             $table->string('municipio');
-            
+
             // Datos electorales y profesionales
             $table->string('seccion_electoral');
             $table->string('ocupacion_actual');
@@ -36,7 +36,7 @@ return new class extends Migration
             $table->text('secciones_desarrollarse');
             $table->text('por_que_propone');
             $table->text('corriente_politica');
-            
+
             $table->timestamps();
         });
     }
