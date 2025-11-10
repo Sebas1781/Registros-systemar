@@ -24,10 +24,10 @@
                     <label for="nombre" class="block text-sm font-medium text-gray-700">
                         Nombre <span class="text-red-500">*</span>
                     </label>
-                    <input 
-                        type="text" 
-                        name="nombre" 
-                        id="nombre" 
+                    <input
+                        type="text"
+                        name="nombre"
+                        id="nombre"
                         value="{{ old('nombre') }}"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('nombre') border-red-500 @enderror"
                         required
@@ -42,10 +42,10 @@
                     <label for="email" class="block text-sm font-medium text-gray-700">
                         Email <span class="text-red-500">*</span>
                     </label>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        id="email" 
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
                         value="{{ old('email') }}"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('email') border-red-500 @enderror"
                         required
@@ -60,10 +60,10 @@
                     <label for="telefono" class="block text-sm font-medium text-gray-700">
                         Teléfono
                     </label>
-                    <input 
-                        type="text" 
-                        name="telefono" 
-                        id="telefono" 
+                    <input
+                        type="text"
+                        name="telefono"
+                        id="telefono"
                         value="{{ old('telefono') }}"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('telefono') border-red-500 @enderror"
                     >
@@ -77,9 +77,9 @@
                     <label for="mensaje" class="block text-sm font-medium text-gray-700">
                         Mensaje
                     </label>
-                    <textarea 
-                        name="mensaje" 
-                        id="mensaje" 
+                    <textarea
+                        name="mensaje"
+                        id="mensaje"
                         rows="4"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('mensaje') border-red-500 @enderror"
                     >{{ old('mensaje') }}</textarea>
@@ -90,7 +90,7 @@
 
                 <!-- Submit Button -->
                 <div>
-                    <button 
+                    <button
                         type="submit"
                         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200"
                     >
