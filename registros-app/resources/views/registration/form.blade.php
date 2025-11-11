@@ -77,6 +77,43 @@
                     </div>
                 </div>
 
+                <!-- Teléfono y Email -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="telefono" class="block text-sm font-medium text-gray-700">
+                            Número Telefónico <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            type="tel"
+                            name="telefono"
+                            id="telefono"
+                            value="{{ old('telefono') }}"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+                            required
+                        >
+                        @error('telefono')
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                            Correo Electrónico <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            value="{{ old('email') }}"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+                            required
+                        >
+                        @error('email')
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
                 <!-- Fotografía -->
                 <div>
                     <label for="fotografia" class="block text-sm font-medium text-gray-700">

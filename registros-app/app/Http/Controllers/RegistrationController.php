@@ -18,6 +18,8 @@ class RegistrationController extends Controller
             'nombre' => 'required|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'required|string|max:255',
+            'telefono' => 'required|string|max:15',
+            'email' => 'required|email|max:255',
             'fotografia' => 'nullable|image|max:5120', // 5MB máximo
             'curp' => 'required|string|size:18',
             'calle' => 'required|string|max:255',

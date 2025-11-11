@@ -11,6 +11,8 @@ class Registration extends Model
         'nombre',
         'apellido_paterno',
         'apellido_materno',
+        'telefono',
+        'email',
         'fotografia',
         'curp',
         'calle',
