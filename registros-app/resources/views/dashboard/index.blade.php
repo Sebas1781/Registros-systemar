@@ -57,7 +57,7 @@
                                             </td>
                                             <td class="px-6 py-4 text-center text-sm font-medium">
                                                 <div class="flex items-center justify-center gap-3">
-                                                    <button 
+                                                    <button
                                                         onclick="openModal({{ $registration->id }})"
                                                         class="text-emerald-600 hover:text-emerald-900"
                                                         title="Ver detalles"
@@ -104,7 +104,7 @@
                                                                     >
                                                                 </div>
                                                             @endif
-                                                            
+
                                                             <div class="flex-1">
                                                                 <h4 class="text-xl font-bold text-gray-900 mb-2">
                                                                     {{ $registration->nombre }} {{ $registration->apellido_paterno }} {{ $registration->apellido_materno }}
