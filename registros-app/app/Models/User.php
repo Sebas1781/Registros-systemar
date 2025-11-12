@@ -22,6 +22,7 @@ class User extends Authenticatable
         'apellido_paterno',
         'apellido_materno',
         'curp',
+        'fotografia',
         'calle',
         'manzana',
         'lote',

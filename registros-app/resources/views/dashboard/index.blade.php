@@ -83,100 +83,130 @@
                                         <!-- Modal para cada registro -->
                                         <tr id="modal-{{ $registration->id }}" class="hidden">
                                             <td colspan="5" class="p-0">
-                                                <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50" onclick="closeModal({{ $registration->id }})">
-                                                    <div class="relative top-20 mx-auto p-8 border w-11/12 max-w-4xl shadow-lg rounded-lg bg-white" onclick="event.stopPropagation()">
-                                                        <div class="flex justify-between items-start mb-6">
-                                                            <h3 class="text-2xl font-bold text-gray-900">Detalles del Registro</h3>
-                                                            <button onclick="closeModal({{ $registration->id }})" class="text-gray-400 hover:text-gray-600">
-                                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                                                </svg>
-                                                            </button>
+                                                <div class="fixed inset-0 bg-black bg-opacity-75 overflow-y-auto h-full w-full z-50 flex items-center justify-center p-0 sm:p-4">
+                                                    <div class="relative w-full h-full sm:h-auto sm:max-w-2xl sm:max-h-[95vh] overflow-y-auto bg-white sm:rounded-xl shadow-2xl" onclick="event.stopPropagation()">
+
+                                                        <!-- Botón cerrar en la esquina -->
+                                                        <button
+                                                            onclick="closeModal({{ $registration->id }})"
+                                                            class="absolute top-2 right-2 z-50 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-xs font-bold shadow-lg active:scale-95 transition-all"
+                                                        >
+                                                            ✕
+                                                        </button>
+
+                                                        <!-- Header del modal -->
+                                                        <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 pt-10 pb-4 px-4 sm:rounded-t-xl">
+                                                            <h3 class="text-base sm:text-lg font-bold text-white text-center">Detalles del Registro</h3>
                                                         </div>
 
-                                                        <div class="flex gap-6">
+                                                        <!-- Contenido del modal -->
+                                                        <div class="p-5 sm:p-6">
                                                             @if($registration->fotografia)
-                                                                <div class="flex-shrink-0">
+                                                                <div class="mb-6 flex justify-center">
                                                                     <img
                                                                         src="{{ asset('storage/' . $registration->fotografia) }}"
                                                                         alt="Foto de {{ $registration->nombre }}"
-                                                                        class="w-48 h-48 rounded-lg object-cover border-2 border-gray-300 shadow-md"
+                                                                        class="w-48 h-56 sm:w-56 sm:h-64 rounded-xl object-cover border-4 border-emerald-500 shadow-xl"
                                                                     >
                                                                 </div>
                                                             @endif
 
-                                                            <div class="flex-1">
-                                                                <h4 class="text-xl font-bold text-gray-900 mb-2">
+                                                            <div>
+                                                                <h4 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2 text-center">
                                                                     {{ $registration->nombre }} {{ $registration->apellido_paterno }} {{ $registration->apellido_materno }}
                                                                 </h4>
-                                                                <p class="text-sm text-gray-600 mb-4">CURP: {{ $registration->curp }}</p>
+                                                                <p class="text-sm sm:text-base text-gray-600 mb-6 text-center font-mono">{{ $registration->curp }}</p>
 
-                                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                                                    <div>
-                                                                        <p class="text-xs font-semibold text-gray-500 uppercase">Teléfono</p>
-                                                                        <p class="text-sm text-gray-900">{{ $registration->telefono }}</p>
+                                                                <div class="space-y-4">
+                                                                    <div class="bg-gradient-to-r from-emerald-50 to-white rounded-lg p-4 border-l-4 border-emerald-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-emerald-700 uppercase mb-1">Teléfono</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900 font-semibold">{{ $registration->telefono }}</p>
                                                                     </div>
 
-                                                                    <div>
-                                                                        <p class="text-xs font-semibold text-gray-500 uppercase">Email</p>
-                                                                        <p class="text-sm text-gray-900">{{ $registration->email }}</p>
+                                                                    <div class="bg-gradient-to-r from-emerald-50 to-white rounded-lg p-4 border-l-4 border-emerald-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-emerald-700 uppercase mb-1">Email</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900 break-all">{{ $registration->email }}</p>
                                                                     </div>
 
-                                                                    <div>
-                                                                        <p class="text-xs font-semibold text-gray-500 uppercase">Dirección</p>
-                                                                        <p class="text-sm text-gray-900">
+                                                                    <div class="bg-gradient-to-r from-emerald-50 to-white rounded-lg p-4 border-l-4 border-emerald-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-emerald-700 uppercase mb-1">Sección Electoral</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900 font-semibold">{{ $registration->seccion_electoral }}</p>
+                                                                    </div>
+
+                                                                    <div class="bg-gradient-to-r from-blue-50 to-white rounded-lg p-4 border-l-4 border-blue-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-blue-700 uppercase mb-1">Experiencia</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900 font-semibold">{{ $registration->experiencia }}</p>
+                                                                    </div>
+
+                                                                    <div class="bg-gradient-to-r from-purple-50 to-white rounded-lg p-4 border-l-4 border-purple-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-purple-700 uppercase mb-1">Dirección</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900">
                                                                             {{ $registration->calle }}
                                                                             @if($registration->manzana) Mz. {{ $registration->manzana }} @endif
                                                                             @if($registration->lote) Lt. {{ $registration->lote }} @endif
                                                                             @if($registration->numero) #{{ $registration->numero }} @endif
                                                                         </p>
-                                                                        <p class="text-sm text-gray-900">CP: {{ $registration->codigo_postal }}, {{ $registration->municipio }}</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900 mt-1">CP: {{ $registration->codigo_postal }}, {{ $registration->municipio }}</p>
                                                                     </div>
 
-                                                                    <div>
-                                                                        <p class="text-xs font-semibold text-gray-500 uppercase">Sección Electoral</p>
-                                                                        <p class="text-sm text-gray-900">{{ $registration->seccion_electoral }}</p>
+                                                                    <div class="bg-gradient-to-r from-orange-50 to-white rounded-lg p-4 border-l-4 border-orange-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-orange-700 uppercase mb-1">Ocupación</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900">{{ $registration->ocupacion_actual }}</p>
                                                                     </div>
 
-                                                                    <div>
-                                                                        <p class="text-xs font-semibold text-gray-500 uppercase">Ocupación</p>
-                                                                        <p class="text-sm text-gray-900">{{ $registration->ocupacion_actual }}</p>
+                                                                    @if($registration->detalle_experiencia)
+                                                                    <div class="bg-gradient-to-r from-indigo-50 to-white rounded-lg p-4 border-l-4 border-indigo-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-indigo-700 uppercase mb-1">Detalle de Experiencia</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900">{{ $registration->detalle_experiencia }}</p>
                                                                     </div>
-
-                                                                    <div>
-                                                                        <p class="text-xs font-semibold text-gray-500 uppercase">Experiencia</p>
-                                                                        <p class="text-sm text-gray-900">{{ $registration->experiencia }}</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                @if($registration->detalle_experiencia)
-                                                                <div class="mb-4">
-                                                                    <p class="text-xs font-semibold text-gray-500 uppercase">Detalle de Experiencia</p>
-                                                                    <p class="text-sm text-gray-900">{{ $registration->detalle_experiencia }}</p>
-                                                                </div>
-                                                                @endif
-
-                                                                <div class="mb-4">
-                                                                    <p class="text-xs font-semibold text-gray-500 uppercase">Secciones para Desarrollarse</p>
-                                                                    <p class="text-sm text-gray-900">{{ $registration->secciones_desarrollarse }}</p>
-                                                                </div>
-
-                                                                <div class="mb-4">
-                                                                    <p class="text-xs font-semibold text-gray-500 uppercase">¿Por qué se propone?</p>
-                                                                    <p class="text-sm text-gray-900">{{ $registration->por_que_propone }}</p>
-                                                                </div>
-
-                                                                <div class="mb-4">
-                                                                    <p class="text-xs font-semibold text-gray-500 uppercase">Corriente Política</p>
-                                                                    <p class="text-sm text-gray-900">{{ $registration->corriente_politica }}</p>
-                                                                </div>
-
-                                                                <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t">
-                                                                    <span>ID: {{ $registration->id }}</span>
-                                                                    @if($registration->user)
-                                                                        <span>Registrado por: {{ $registration->user->name }} {{ $registration->user->apellido_paterno }}</span>
                                                                     @endif
-                                                                    <span>{{ $registration->created_at->format('d/m/Y H:i') }}</span>
+
+                                                                    <div class="bg-gradient-to-r from-teal-50 to-white rounded-lg p-4 border-l-4 border-teal-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-teal-700 uppercase mb-1">Secciones para Desarrollarse</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900">{{ $registration->secciones_desarrollarse }}</p>
+                                                                    </div>
+
+                                                                    <div class="bg-gradient-to-r from-pink-50 to-white rounded-lg p-4 border-l-4 border-pink-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-pink-700 uppercase mb-1">¿Por qué se propone?</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900">{{ $registration->por_que_propone }}</p>
+                                                                    </div>
+
+                                                                    <div class="bg-gradient-to-r from-red-50 to-white rounded-lg p-4 border-l-4 border-red-500 shadow-sm">
+                                                                        <p class="text-xs font-bold text-red-700 uppercase mb-1">Corriente Política</p>
+                                                                        <p class="text-base sm:text-lg text-gray-900">{{ $registration->corriente_politica }}</p>
+                                                                    </div>
+
+                                                                    <div class="bg-gray-100 rounded-xl p-4 border border-gray-300 mt-6">
+                                                                        <div class="grid grid-cols-1 gap-2 text-sm text-gray-700">
+                                                                            <div class="flex items-center gap-2">
+                                                                                <span class="font-bold text-gray-900">ID:</span>
+                                                                                <span>{{ $registration->id }}</span>
+                                                                            </div>
+                                                                            @if($registration->user)
+                                                                            <div class="flex items-start gap-2">
+                                                                                <span class="font-bold text-gray-900 whitespace-nowrap">Registrado por:</span>
+                                                                                <span>{{ $registration->user->name }} {{ $registration->user->apellido_paterno }}</span>
+                                                                            </div>
+                                                                            @endif
+                                                                            <div class="flex items-center gap-2">
+                                                                                <span class="font-bold text-gray-900">Fecha:</span>
+                                                                                <span>{{ $registration->created_at->format('d/m/Y H:i') }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- Botón de cerrar grande y visible -->
+                                                                    <div class="mt-6 pb-4">
+                                                                        <button
+                                                                            onclick="closeModal({{ $registration->id }})"
+                                                                            class="w-full bg-black hover:bg-gray-900 active:scale-95 text-white font-bold text-xl py-5 px-6 rounded-2xl transition-all duration-200 shadow-2xl hover:shadow-3xl flex items-center justify-center gap-3"
+                                                                        >
+                                                                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                                            </svg>
+                                                                            CERRAR
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

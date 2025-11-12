@@ -84,10 +84,12 @@
                             Número Telefónico <span class="text-red-500">*</span>
                         </label>
                         <input
-                            type="tel"
+                            type="text"
                             name="telefono"
                             id="telefono"
                             value="{{ old('telefono') }}"
+                            pattern="[0-9]*"
+                            maxlength="10"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
                             required
                         >
@@ -143,9 +145,11 @@
                         id="curp"
                         value="{{ old('curp') }}"
                         maxlength="18"
+                        pattern="[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[0-9A-Z]{2}"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 uppercase"
                         required
                     >
+                    <p class="mt-1 text-xs text-gray-500">Formato: 4 letras, 6 dígitos, H/M, 5 letras, 2 caracteres</p>
                     @error('curp')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
@@ -218,7 +222,10 @@
                             name="codigo_postal"
                             id="codigo_postal"
                             value="{{ old('codigo_postal') }}"
+                            maxlength="5"
+                            pattern="[0-9]{5}"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+                            placeholder="12345"
                             required
                         >
                         @error('codigo_postal')

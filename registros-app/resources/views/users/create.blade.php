@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('users.store') }}" method="POST">
+                    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Nombre completo -->
@@ -51,6 +51,14 @@
                             <input type="text" name="curp" id="curp" value="{{ old('curp') }}" maxlength="18" required
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
                                 placeholder="18 caracteres">
+                        </div>
+
+                        <!-- Fotografía -->
+                        <div class="mb-6">
+                            <label for="fotografia" class="block text-sm font-medium text-gray-700">Fotografía</label>
+                            <input type="file" name="fotografia" id="fotografia" accept="image/*"
+                                class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                            <p class="mt-1 text-xs text-gray-500">Tamaño máximo: 5MB. Formatos permitidos: JPG, PNG, GIF</p>
                         </div>
 
                         <!-- Contraseña -->

@@ -26,6 +26,7 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Foto</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre Completo</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CURP</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
@@ -37,6 +38,17 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @forelse($users as $user)
                                     <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            @if($user->fotografia)
+                                                <img src="{{ asset('storage/' . $user->fotografia) }}" alt="Foto de {{ $user->name }}" class="w-10 h-10 rounded-full object-cover border-2 border-gray-200">
+                                            @else
+                                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                                                    <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                            @endif
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="text-sm font-medium text-gray-900">
                                                 {{ $user->name }} {{ $user->apellido_paterno }} {{ $user->apellido_materno }}
@@ -66,7 +78,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="px-6 py-4 text-center text-gray-500">
+                                        <td colspan="7" class="px-6 py-4 text-center text-gray-500">
                                             No hay usuarios registrados
                                         </td>
                                     </tr>

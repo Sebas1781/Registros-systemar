@@ -39,6 +39,7 @@ class UserManagementController extends Controller
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'required|string|max:255',
             'curp' => 'required|string|size:18|unique:users,curp',
+            'fotografia' => 'nullable|image|max:5120', // 5MB máximo
             'password' => 'required|string|min:8|confirmed',
             'calle' => 'required|string|max:255',
             'manzana' => 'required|string|max:10',
@@ -56,11 +57,18 @@ class UserManagementController extends Controller
             'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
         ]);
 
+        // Manejo de la fotografía
+        $fotografiaPath = null;
+        if ($request->hasFile('fotografia')) {
+            $fotografiaPath = $request->file('fotografia')->store('usuarios', 'public');
+        }
+
         User::create([
             'name' => $validated['name'],
             'apellido_paterno' => $validated['apellido_paterno'],
             'apellido_materno' => $validated['apellido_materno'],
             'curp' => $validated['curp'],
+            'fotografia' => $fotografiaPath,
             'calle' => $validated['calle'],
             'manzana' => $validated['manzana'],
             'lote' => $validated['lote'],
